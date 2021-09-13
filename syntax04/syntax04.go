@@ -1,31 +1,32 @@
-// package main
+package main
 
-// import (
-// 	"fmt"
-// 	"math/rand" //	난수
-// 	"time"      // seed 생성용 패키지
-// )
+import (
+	"fmt"
+	"math/rand" //	난수
+	"time"      // seed 생성용 패키지
+)
 
-// //	난수 추출된 수의 소수 판정 프로그램 v0.3
-// //	소수 : 1과 자기자신외에는 나누어 떨어지지 않는 수 (0과 1은 제외)
+//	난수 추출된 수의 소수 판정 프로그램 v0.4
+//	소수 : 1과 자기자신외에는 나누어 떨어지지 않는 수 (0과 1은 제외)
 
-// func main() {
-// 	seed := time.Now().Unix()
-// 	rand.Seed(seed)
+func main() {
+	seed := time.Now().Unix()
+	rand.Seed(seed)
 
-// 	isPrime := true
-// 	number := rand.Intn(150) + 2 // 0과 1제외, 2~151 사이의 수
-// 	fmt.Println("임의로 추출된 수 : ", number)
+	isPrime := true
+	number := rand.Intn(150) + 2 // 0과 1제외, 2~151 사이의 수
+	fmt.Println("임의로 추출된 수 : ", number)
 
-// 	for i := 2; i < number; i++ { // 1과 number일 때 loop  돌지 않음
-// 		if number%i == 0 {
-// 			isPrime = false
-// 		}
-// 	}
+	for i := 2; i < number; i++ { // 1과 number일 때 loop  돌지 않음
+		if number%i == 0 {
+			isPrime = false
+		}
+		fmt.Println(i, " ")
+	}
 
-// 	if isPrime == true {
-// 		fmt.Println(number, "는(은) 소수입니다!")
-// 	} else {
-// 		fmt.Println(number, "는(은)  소수가 아닙니다~")
-// 	}
-// }
+	if isPrime { // 비교 연산자 제거
+		fmt.Println(number, "는(은) 소수입니다!")
+	} else {
+		fmt.Println(number, "는(은)  소수가 아닙니다~")
+	}
+}
